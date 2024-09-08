@@ -1,9 +1,6 @@
 # Node 모듈들
 node_modules/
 
-#package-lock.json
-package-lock.json/
-
 # 환경 변수 파일
 .env
 
