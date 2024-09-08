@@ -9,7 +9,7 @@ function App() {
 
   // 서버에서 메시지 가져오기
   useEffect(() => {
-    fetch("http://localhost:3000/") // Express 서버 주소
+    fetch("https://dead-tiphany-bellakang-d01b3a09.koyeb.app/") // Express 서버 주소
       .then((response) => response.text())
       .then((data) => setMessage(data))
       .catch((error) => console.error("Error fetching data:", error));
