@@ -12,6 +12,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "electron": "^32.1.1",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "is-dev": "^0.1.4"
   }
 }
