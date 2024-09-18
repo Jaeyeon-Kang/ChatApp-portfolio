@@ -20,6 +20,7 @@ Electron 설치 파일 실행 후 자동으로 백엔드와 프론트엔드 서�
 chatapp-backend/
 ├── main.js           # Electron 메인 프로세스
 ├── preload.js        # Electron preload 스크립트
+├── server.js         # Express 서버
 ├── package.json      # 프로젝트 설정 파일
 └── chatapp-front/    # 프론트엔드 (React + Vite)
 ```
@@ -46,3 +47,8 @@ chatapp-backend/
 - **문제**: Mac에서 Electron 실행 시 EGL Driver와 관련된 GPU 하드웨어 가속 문제 발생. 오류 메시지:EGL Driver message (Error) eglQueryDeviceAttribEXT: Bad attribute.
 - **해결 방법**: Electron에서 하드웨어 가속을 비활성화하여 문제 해결. `main.js`에 `app.disableHardwareAcceleration();` 추가.
 - **출처**: [Electron Issue #28164](https://github.com/electron/electron/issues/28164)
+
+### 3. Electron 및 Express 서버 실행 구조 개선
+
+- **문제**: Electron과 Express 서버를 동시에 실행하기 위한 스크립트가 정의되지 않아, 두 서버를 각각 실행할 수 없었음.
+- **해결 방법**: `package.json`에 `"start": "node server.js"`로 Express 서버를 실행하고, `"electron": "electron ."`로 Electron을 실행하도록 스크립트를 수정.
