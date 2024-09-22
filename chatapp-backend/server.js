@@ -13,8 +13,8 @@ console.log(`isDev: ${isDev}`);
 app.get("/message", (req, res) => {
   res.send({
     message: isDev
-      ? "Express 서버가 dev 에서 실행중"
-      : "Express 서버가 Koyeb에서 실행 중입니다!",
+      ? "Express 서버가 dev 에서 실행 중"
+      : "Express 서버가 Koyeb에서 실행 중",
   });
 });
 
