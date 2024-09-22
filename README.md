@@ -23,6 +23,27 @@ chatapp-backend/
 ├── server.js         # Express 서버
 ├── package.json      # 프로젝트 설정 파일
 └── chatapp-front/    # 프론트엔드 (React + Vite)
+    ├── src/
+    │   ├── components/
+    │   │   ├── Sidebar/
+    │   │   │   ├── Sidebar.tsx
+    │   │   │   ├── SidebarItem.tsx
+    │   │   ├── ChatHeader/
+    │   │   │   ├── ChatHeader.tsx
+    │   │   ├── ChatWindow/
+    │   │   │   ├── ChatWindow.tsx
+    │   │   ├── MessageInput/
+    │   │   │   ├── MessageInput.tsx
+    │   ├── store/              # Redux 관련 파일들
+    │   │   ├── index.ts        # Redux 스토어 설정
+    │   │   ├── chatSlice.ts    # 채팅 관련 상태
+    │   │   └── userSlice.ts    # 사용자 관련 상태
+    │   ├── services/           # React Query 관련 서버 요청
+    │   │   ├── chatService.ts  # 채팅 API 요청
+    │   │   └── userService.ts  # 사용자 API 요청
+    │   └── App.tsx             # 메인 앱 파일
+
+
 ```
 
 ## 주요 기능
@@ -35,7 +56,7 @@ chatapp-backend/
 
 # 프로젝트 이슈 기록
 
-## 날짜: 2024/09/19
+## 2024/09/19
 
 ### 1. Electron.js에서 frontend 연동 문제
 
@@ -52,3 +73,9 @@ chatapp-backend/
 
 - **문제**: Electron과 Express 서버를 동시에 실행하기 위한 스크립트가 정의되지 않아, 두 서버를 각각 실행할 수 없었음.
 - **해결 방법**: `package.json`에 `"start": "node server.js"`로 Express 서버를 실행하고, `"electron": "electron ."`로 Electron을 실행하도록 스크립트를 수정.
+
+## 2024/09/22
+
+### 4. Tailwind CSS가 개발자 도구에 보이지 않는 문제
+
+- **문제**: 개발자 도구에서 Tailwind CSS 스타일이 보이지 않았고, 적용된 CSS 클래스가 확인되지 않았음. 문제는 **Tailwind 설정**에서 발생한 것이었음. Tailwind CSS는 `index.css` 파일에 **@tailwind base, @tailwind components, @tailwind utilities**가 제대로 포함되지 않았던 것을 확인하고 추가함. 또한 `tsconfig.json`에서 **module**값을 **commonJS에서 esnext**로 변경. 이에 문제가 잘 해결된 것을 확인함.
