@@ -1,11 +1,5 @@
 import {FC} from "react";
 
-interface TabProps {
-	label: string;
-	isActive: boolean;
-	onClick: () => void;
-}
-
 const Tab: FC<TabProps> = ({label, isActive, onClick}) => {
 	return (
 		<button

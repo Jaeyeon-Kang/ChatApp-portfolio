@@ -1,9 +1,4 @@
-interface ChatListItemProps {
-	name: string;
-	lastMessage: string;
-	time: string;
-	onClick: () => void;
-}
+import {ChatListItemProps} from "../../types/ChatTypes";
 
 const ChatListItem: React.FC<ChatListItemProps> = ({name, lastMessage, time, onClick}) => {
 	return (
