@@ -9,7 +9,6 @@ const ChatListItem: React.FC<ChatListItemProps> = ({name, lastMessage, time, onC
 	return (
 		<div onClick={onClick} className='flex items-center justify-between p-4 cursor-pointer hover:bg-gray-200'>
 			<div className='flex'>
-				<img src='/path/to/profile-pic.jpg' alt={name} className='w-10 h-10 mr-3 rounded-full' />
 				<div>
 					<h4 className='font-bold'>{name}</h4>
 					<p className='text-sm text-gray-500'>{lastMessage}</p>
