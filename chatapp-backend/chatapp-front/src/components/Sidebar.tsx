@@ -1,14 +1,31 @@
+import TabNavigation from "./TabNavigation/TabNavigation";
+import Favourites from "./TabNavigation/Favourites";
+import Friends from "./TabNavigation/Friends";
+import Groups from "./TabNavigation/Groups";
+import {useState} from "react";
+
 const Sidebar = () => {
-  return (
-    <div className="w-72 px-8 py-16 bg-stone-900 text-stone-50 rounded">
-      <h2 className="text-xl font-bold mb-4">Chats</h2>
-      <ul>
-        <li className="mb-2 p-2 bg-gray-700 rounded-lg">Room 1</li>
-        <li className="mb-2 p-2 bg-gray-700 rounded-lg">Room 2</li>
-        <li className="mb-2 p-2 bg-gray-700 rounded-lg">Room 3</li>
-      </ul>
-    </div>
-  );
+	const [activeTab, setActiveTab] = useState("Favourites");
+
+	const renderChatItems = () => {
+		switch (activeTab) {
+			case "Favourites":
+				return <Favourites />;
+			case "Friends":
+				return <Friends />;
+			case "Groups":
+				return <Groups />;
+			default:
+				return null;
+		}
+	};
+
+	return (
+		<div className='h-screen p-4 bg-white shadow-lg w-72'>
+			<TabNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
+			<div className='mt-4'>{renderChatItems()}</div>
+		</div>
+	);
 };
 
 export default Sidebar;
